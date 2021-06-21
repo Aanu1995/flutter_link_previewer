@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' show PreviewData;
 import 'package:flutter_linkify/flutter_linkify.dart' hide UrlLinkifier;
@@ -283,8 +284,8 @@ class _LinkPreviewState extends State<LinkPreview>
         maxHeight: width,
       ),
       width: width,
-      child: Image.network(
-        url,
+      child: CachedNetworkImage(
+        imageUrl: url,
         fit: BoxFit.fitWidth,
       ),
     );
@@ -349,7 +350,7 @@ class _LinkPreviewState extends State<LinkPreview>
       child: SizedBox(
         height: 48,
         width: 48,
-        child: Image.network(url),
+        child: CachedNetworkImage(imageUrl: url),
       ),
     );
   }
